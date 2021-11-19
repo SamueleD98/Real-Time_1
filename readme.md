@@ -1,7 +1,8 @@
 # Assignment 1 REAL-TIME OPERATING SYSTEMS
 
-Starting from the exercise with 3 tasks scheduled with Rate Monotonic, an application with 4 periodic tasks has been created.  
+Starting from the exercise with 3 tasks scheduled with Rate Monotonic, an application with 4 periodic tasks has been created. Each task reads and/or writes three global variables. Operations that needs mutex as they are considered as critical. In fact reading and writing are not atomic operations and so the thread can be preempted during this operations causing inconsistency !!!!!!!!!!!. As instructed, semaphores!!!!!!!!!! use Priority Ceiling. 
 
+### Declarations and settings!!!!!!
 First thing has been done was to add the fourth task and its characteristic function. Then the three global variables have been declared:  
 <pre>
 int T1T2 = 0;  
@@ -17,6 +18,7 @@ int pthread_mutexattr_setprotocol(pthread_mutexattr_t &attr2, int PTHREAD_PRIO_P
 </pre>
 The first two mutexes have the same priority ceiling as they both are associated to the thread with the highest priority. So they both relate to attr1, meanwhile the third mutex relate to attr2.  
 
+### Main modifications!!!!!!!!!!
 After updating the tasks periods, the U computation algorithm needs to be updated in order to take account of the fourth task.  
 In the original code _parameters[i].sched_priority_ keeps the priority of eache thread. Its values are needed to set the priority ceiling of the two attributes and so of the three mutexes:  
 <pre>
@@ -40,7 +42,9 @@ int pthread_mutex_destroy(pthread_mutex_t *mutex23);
 int pthread_mutexattr_destroy(pthread_mutexattr_t *attr1);  
 int pthread_mutexattr_destroy(pthread_mutexattr_t *attr2);  
 </pre>
-Each task reads or writes global variables only after it calls the mutex. Below, the second task takes control of two mutexes, one for reading and one for writing:  
+
+### Tasks code modifications !!!!!!!!!!!!!!!!!!!!
+Each task reads or writes global variables only after it calls the mutex as it is a critical section. Below, the second task takes control of two mutexes, one for reading and one for writing:  
 <pre>
 int pthread_mutex_lock(pthread_mutex_t &mutex12 );  
   double temp=T1T2;  
@@ -53,7 +57,7 @@ int pthread_mutex_lock(pthread_mutex_t &mutex23 );
   T2T3++;  
 int pthread_mutex_lock(pthread_mutex_t &mutex23 );  
 </pre>
-
+The read variables are print!!! just to checks if the program works as expected. They should increase as the writing tasks runs.
 
 
 
