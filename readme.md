@@ -59,7 +59,9 @@ int pthread_mutex_lock(pthread_mutex_t &mutex23 );
 </pre>
 The read variables are print!!! just to checks if the program works as expected. They should increase as the writing tasks runs.
 
+### Execution 
 
+![ex_example](/execution_example.png)  
 
 
 
