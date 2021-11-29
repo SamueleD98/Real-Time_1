@@ -61,8 +61,8 @@ The read variables are printed just to check if the program works as expected. T
 
 ### Execution 
 
-Below an example of the execution. Its been decided to keep each task looping a number of times doing nothing useful just to increase the execution time and so cause the need of pre emption. It also cause some missed deadline, as shown in the last four lines. 
-The elighted line shows as the fourth task is preempted to let execute, in order: 
+Below an example of the execution. Its been decided to keep each task looping a number of times doing nothing useful just to increase the execution time and so cause the need of preemption. It also cause some missed deadline, as shown in the last four lines. 
+The highlighted line shows as the fourth task is preempted to let execute, in order: 
 - The task number 1.
 - The task number 2, that after a preemption by task 1, continue its execution and print the value of the global variable T1T2.
 - The task number 3. This is preempted by task 2 which print T1T2 (notice how the value has not been modified since T1 didn't start a new period yet), then again by task 1 and ultimately it could print T2T3.
