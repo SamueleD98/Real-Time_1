@@ -51,11 +51,11 @@ int pthread_mutex_lock(pthread_mutex_t &mutex12 );
   printf(" ");  
   printf("%f", temp);  
   printf(" ");  
-int pthread_mutex_lock(pthread_mutex_t &mutex12 );  
+int pthread_mutex_unlock(pthread_mutex_t &mutex12 );  
   
 int pthread_mutex_lock(pthread_mutex_t &mutex23 );  
   T2T3++;  
-int pthread_mutex_lock(pthread_mutex_t &mutex23 );  
+int pthread_mutex_unlock(pthread_mutex_t &mutex23 );  
 </pre>
 The read variables are printed just to check if the program works as expected. They should increase as the writing tasks runs.
 
